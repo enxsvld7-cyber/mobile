@@ -1,0 +1,30 @@
+# =====================================================================
+# pubspec.yaml — Flutter төслийн "паспорт"
+#   • name        : төслийн нэр (import 'package:sahiul_app/...' гэж ашиглагдана)
+#   • environment : Dart SDK-ийн хамгийн бага хувилбар
+#   • dependencies: гадны сан (package) — pub.dev-ээс `flutter pub get` татна
+# =====================================================================
+name: sahiul_app
+description: "Сахиул – хамгаалалтын компанийн ажилтны ирц, ээлж, цалингийн апп (Flutter)"
+publish_to: 'none' # pub.dev-д нийтлэхгүй
+
+version: 1.0.0+1 # 1.0.0 = хэрэглэгчид харагдах хувилбар, +1 = build дугаар
+
+environment:
+  sdk: '>=3.7.0 <4.0.0' # Flutter 3.29+ (Dart 3.7+) — records, switch expression ашигласан
+
+dependencies:
+  flutter:
+    sdk: flutter
+  # GPS байршил авах — ирц бүртгэхэд постын бүсэд байгаа эсэхийг шалгана (шаардлага №1)
+  geolocator: ^14.0.2
+  # Утасны дугаар руу залгах (SOS: 102, 101, 103) — tel: холбоос нээнэ
+  url_launcher: ^6.3.1
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  flutter_lints: ^5.0.0 # кодын чанарын зөвлөмж (analysis_options.yaml)
+
+flutter:
+  uses-material-design: true # Material Icons фонтыг (Icons.*) аппад багтаана

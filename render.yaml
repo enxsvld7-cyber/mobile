@@ -1,0 +1,22 @@
+# =====================================================================
+# Render Blueprint — Flutter вэб аппыг STATIC SITE болгож байршуулна.
+#   • Static site нь унтдаггүй (spin down хийхгүй) → линк үргэлж шууд нээгдэнэ.
+#   • Үнэгүй, HTTPS-тэй: https://sahiul-app.onrender.com (нэр давхцвал өөр дагавар авна)
+# Render → New → Blueprint → энэ repo → Apply
+# =====================================================================
+services:
+  - type: web
+    name: sahiul-app
+    runtime: static
+    buildCommand: bash ./render-build.sh
+    staticPublishPath: ./build/web
+    # Flutter нэг хуудастай апп (SPA): бүх замыг index.html руу
+    routes:
+      - type: rewrite
+        source: /*
+        destination: /index.html
+    # Шинэ хувилбар гаргахад хуучин кэш гацахгүй байх
+    headers:
+      - path: /*
+        name: Cache-Control
+        value: no-cache
